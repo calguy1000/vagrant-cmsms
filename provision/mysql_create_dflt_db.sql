@@ -1,0 +1,2 @@
+CREATE DATABASE dflt;
+GRANT ALL PRIVILEGES ON dflt.* TO dflt@localhost IDENTIFIED BY 'dflt';
