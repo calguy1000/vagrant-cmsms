@@ -1,9 +1,14 @@
 Vagrant config to create a CMSMS installation
 
 Based On
+   ArminVieweg/ubuntu-xenial64-lamp
 
-Requires
-   landrush vagrant plugin
+Features
+   Uses Ubuntu 16.04 LTS
+   Has multiple versions of PHP.  Default is PHP 7.1
+   mailhog is installed
+   phar.readonly is disabled
+   opcache is enabled
 
 Packages Available
    cmscli
@@ -11,18 +16,21 @@ Packages Available
    unzip
    subversion
    git
-   - multiple php versions
-  
 
+Instructions:
+   vagrant up
+   browse to "http://192.168.1.200/' ... cmsms installation script is available as install.php
+  
 Connecting:
+   Private IP Address:  192.168.1.200
    HTTP:  localhost:8080
    SSH:   localhost:2222
    or just "vagrant ssh" 
 
 Usernames/Passwords
-   vagrant/vagrant
-   mysql/
-   root/
+   mysql:        user: root    password: none
+   root user:    user: root    password: none
+   vagrant user: user: vagrant password: vagrant
 
 Synced Folders
    ./  is synced to /vagrant
@@ -30,8 +38,10 @@ Synced Folders
   
 Special folders:
    /home/vagrant/htdocs is linked (bindfs mount) to /var/www  
-   - vagrant user (via ssh) can modify files in ~/htdocs to effect the website
+   The vagrant user (via ssh or "vagrant ssh") can modify files in ~/htdocs to effect the website.
    
 Databases:
-   dflt  u: dflt p: dflt
+   name:  dflt  
+   user:  dflt 
+   pass:  dflt
 
