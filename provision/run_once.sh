@@ -23,8 +23,6 @@ echo "phar.readonly = Off" >> /etc/php/7.0/cli/php.ini
 echo "phar.readonly = Off" >> /etc/php/7.2/apache2/php.ini
 echo "sendmail_path = \"/usr/local/bin/mailhog sendmail test@localhost.localdomain\"" >> /etc/php/7.2/apache2/php.ini
 echo "phar.readonly = Off" >> /etc/php/7.2/cli/php.ini
-echo "opcache.enable = 1" > /var/www/.user.ini
-echo "opcache.enable = 1" > /var/www/html/.user.ini
 
 echo "Setting up MailHog"
 wget -O /usr/local/bin/mailhog https://github.com/mailhog/MailHog/releases/download/v0.2.0/MailHog_linux_amd64 -o /dev/null && chmod +x /usr/local/bin/mailhog
@@ -41,6 +39,8 @@ if [ ! -d /var/www/html ]; then
    mkdir /var/www/html
    echo "Options +Indexes" > /var/www/html/.htaccess
    chown -R www-data.www-data /var/www/html
+   echo "opcache.enable = 1" > /var/www/.user.ini
+   echo "opcache.enable = 1" > /var/www/html/.user.ini
 fi
 cd /var/www/html
 rm -rf ./*
