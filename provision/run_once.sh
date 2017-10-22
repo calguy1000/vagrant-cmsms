@@ -30,12 +30,11 @@ echo "Setting up MailHog"
 wget -O /usr/local/bin/mailhog https://github.com/mailhog/MailHog/releases/download/v0.2.0/MailHog_linux_amd64 -o /dev/null && chmod +x /usr/local/bin/mailhog
 echo "/usr/local/bin/mailhog" >> /etc/rc.local
 
-
 echo "Installing cmscli"
 wget -O /usr/local/bin/cmscli http://dev.cmsmadesimple.org/download_cmscli.php -o /dev/null && chmod +x /usr/local/bin/cmscli
 
 ## temporary
-cp /vagrant/cmscli.phar /usr/local/bin/cmscli && chmod +x /usr/local/bin/cmscli
+## cp /vagrant/cmscli.phar /usr/local/bin/cmscli && chmod +x /usr/local/bin/cmscli
 
 echo "Cleaning www directory, preparing for new install"
 if [ ! -d /var/www/html ]; then
